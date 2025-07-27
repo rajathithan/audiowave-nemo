@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Speech Recognition</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="/static/icons/favicon.svg">
+</head>
+<body>
+<div style="text-align: center;">
+    <div>
+        <h1>Speech to Text using NVIDIA NEMO</h1>
+    </div>
+    <div>
+        <canvas id="waveform" width="800" height="150" class="waveform-canvas"></canvas>
+    <div>
+    <div>
+    <button id="start">
+        <span style="vertical-align: middle;">
+        <!-- ...SVG... -->
+        Start Listening
+    </button>
+    </div>    
+    <div id="transcript-container">
+      <label for="transcript-box" class="transcript-label">Detected Text:</label>
+      <textarea id="transcript-box" class="transcript-box" rows="3" readonly></textarea>
+    </div>
+</div>
+  <script src="/static/js/main.js"></script>
+</body>
+</html>
