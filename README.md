@@ -1,7 +1,10 @@
 # AudioWave: Real-Time Speech-to-Text Web Application
 
+
 ## Overview
 AudioWave is a web-based application that allows users to record their voice through a browser, visualize the audio waveform in real time, and transcribe the recorded speech to text using NVIDIA NeMo's Automatic Speech Recognition (ASR) models. The application is built with a FastAPI backend, a modern JavaScript frontend, and leverages PyTorch and NeMo for high-accuracy speech recognition.
+
+![Web Application Screenshot](screenshots/ASR%20-%20Speech%20to%20Text%20-%20Nvidia%20Nemo.png)
 
 ---
 
@@ -23,6 +26,7 @@ AudioWave is a web-based application that allows users to record their voice thr
 - Audio sent to FastAPI backend for transcription
 - NVIDIA NeMo ASR model for accurate speech-to-text
 - Responsive, modern UI
+- **Currently uses the model:** `stt_en_fastconformer_transducer_large`
 
 ---
 
