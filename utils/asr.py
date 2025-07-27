@@ -1,3 +1,7 @@
+# File: asr.py
+# Author: Rajathithan Rajasekar
+# Date: 27-07-2025
+
 import torch
 import asyncio
 import nemo.collections.asr as nemo_asr

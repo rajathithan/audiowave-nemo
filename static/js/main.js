@@ -1,3 +1,7 @@
+// File: main.js
+// Author: Rajathithan Rajasekar
+// Date: 27-07-2025
+
 let mediaRecorder;
 let audioChunks = [];
 let micStream;

@@ -1,13 +1,16 @@
+# File: main.py
+# Author: Rajathithan Rajasekar
+# Date: 27-07-2025
+
+import os
+import uvicorn
+import tempfile
+from utils.asr import load_asr_model
+from contextlib import asynccontextmanager
+from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import FileResponse, JSONResponse
-from fastapi.staticfiles import StaticFiles
-import os
-from utils.asr import load_asr_model
-import tempfile
-import torchaudio
-from contextlib import asynccontextmanager
-import asyncio
-import numpy as np
+
 
 @asynccontextmanager
 async def lifespan(app):
@@ -47,8 +50,7 @@ async def transcribe_audio(file: UploadFile = File(...)):
     return JSONResponse({"text": detectedText})
 
 
-if __name__ == "__main__":
-    import uvicorn
+if __name__ == "__main__":    
     uvicorn.run("main:app", host="0.0.0.0", port=8000, reload=True)
 
 
