@@ -1,4 +1,4 @@
-# AudioWave: Real-Time Speech-to-Text Web Application
+# AudioWave: ASR Speech-to-Text Transcription using NVIDIA NEMO Pre-Trained model
 
 
 ## Overview
