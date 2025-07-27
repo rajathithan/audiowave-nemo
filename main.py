@@ -37,8 +37,8 @@ def read_index():
 
 @app.post("/asr")
 async def transcribe_audio(file: UploadFile = File(...)):
-    print("/asr endpoint called")  # Log endpoint call
-    print(f"Received file: {file.filename}, content_type: {file.content_type}")
+    # print("/asr endpoint called")  # Log endpoint call
+    # print(f"Received file: {file.filename}, content_type: {file.content_type}")
     # Save uploaded audio to a temp file
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as tmp:
         file_bytes = await file.read()

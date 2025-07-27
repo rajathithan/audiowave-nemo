@@ -3,6 +3,12 @@ File: style.css
 Author: Rajathithan Rajasekar
 Date: 27-07-2025
 */
+:root {
+  --color-bg: #000;
+  --color-primary: #00ff00;
+  --color-secondary: #111;
+  --color-white: #fff;
+}
 
 body {
   display: flex;
@@ -10,12 +16,12 @@ body {
   align-items: center;
   height: 100vh;
   margin: 0;
-  background: #000;
-  color: #00ff00;
+  background: var(--color-bg);
+  color: var(--color-primary);
   font-family: Arial, sans-serif;
 }
 canvas {
-  background: #000;
+  background: var(--color-bg);
 }
 button {
   display: block;
@@ -23,14 +29,14 @@ button {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  background: #00ff00;
-  color: #000;
+  background: var(--color-primary);
+  color: var(--color-bg);
   border: none;
   border-radius: 5px;
 }
 h1{
     text-align: center;
-    color: #00ff00;
+    color: var(--color-primary);
     font-size: 36px;
     margin-bottom: 50px;
     padding-bottom: 25px;
@@ -43,19 +49,19 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #111;
-  border: 2px solid #00ff00;
-  box-shadow: 0 0 10px #00ff00aa;
+  background: var(--color-secondary);
+  border: 2px solid var(--color-primary);
+  box-shadow: 0 0 10px var(--color-primary)aa;
   transition: background 0.2s, box-shadow 0.2s;
 }
 .waveform-canvas {
-  background: #000;
+  background: var(--color-bg);
   display: block;
   margin-bottom: 10px;
 }
 .transcript {
   margin-top: 20px;
-  color: #00ff00;
+  color: var(--color-primary);
   font-size: 20px;
 }
 .transcript-box {
@@ -63,10 +69,10 @@ h1{
   min-width: 250px;
   max-width: 700px;
   margin-top: 20px;
-  color: #00ff00;
+  color: var(--color-primary);
   font-size: 20px;
-  background: #111;
-  border: 2px solid #00ff00;
+  background: var(--color-secondary);
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
   padding: 10px;
   resize: none;
@@ -74,7 +80,7 @@ h1{
   box-sizing: border-box;
 }
 .transcript-label {
-  color: #00ff00;
+  color: var(--color-primary);
   font-size: 16px;
   margin-bottom: 5px;
   padding-left: 7%;
