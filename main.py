@@ -5,11 +5,13 @@
 import os
 import uvicorn
 import tempfile
+from pydub import AudioSegment
 from utils.asr import load_asr_model
 from contextlib import asynccontextmanager
 from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import FileResponse, JSONResponse
+  
 
 
 @asynccontextmanager
@@ -43,9 +45,23 @@ async def transcribe_audio(file: UploadFile = File(...)):
         print(f"Received file size: {len(file_bytes)} bytes")  # Log file size
         tmp.write(file_bytes)
         tmp_path = tmp.name
-        print(f"Print the path is  {tmp_path}")
-    detectedText = app.state.asr_model.transcribe([tmp_path])[0].text
+        #print(f"Print the path is  {tmp_path}")
+
+    # Preprocess with pydub to ensure standard PCM WAV
+    pcm_wav_path = tmp_path + "_pcm.wav"
+    try:
+        audio = AudioSegment.from_file(tmp_path)
+        audio = audio.set_frame_rate(16000).set_channels(1)
+        audio.export(pcm_wav_path, format="wav")
+        #print(f"Saved PCM WAV to {pcm_wav_path}")
+    except Exception as e:
+        print(f"Error converting to PCM WAV: {e}")
+        pcm_wav_path = tmp_path  # fallback to original if conversion fails
+
+    detectedText = app.state.asr_model.transcribe([pcm_wav_path])[0].text
     os.remove(tmp_path)  # Clean up temp file
+    if os.path.exists(pcm_wav_path) and pcm_wav_path != tmp_path:
+        os.remove(pcm_wav_path)
     print(f"Transcription result: {detectedText}")
     return JSONResponse({"text": detectedText})
 
